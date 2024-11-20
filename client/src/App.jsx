@@ -1,11 +1,11 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import MainPage from "./components/MainPage/MainPage";
-import SigninPage from "./components/SigninPage/SigninPage";
-import SignupPage from "./components/SignupPage/SignupPage";
+import MainPage from "./components/pages/MainPage/MainPage"
+import SigninPage from "./components/pages/SigninPage/SigninPage";
+import SignupPage from "./components/pages/SignupPage/SignupPage";
 import Root from "./Root";
 import { useEffect, useState } from "react";
 import axiosInstance, { setAccessToken } from "./utils/axiosInstance";
-import ProfilePage from "./components/Profilepage/ProfilePage";
+import ProfilePage from "./components/pages/Profilepage/ProfilePage";
 
 function App() {
   const [user, setUser] = useState({});

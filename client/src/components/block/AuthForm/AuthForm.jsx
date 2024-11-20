@@ -1,9 +1,9 @@
 import React, {  useEffect, useRef, useState } from 'react';
 import style from "./AuthForm.module.css";
-import axiosInstance, { setAccessToken } from "../../utils/axiosInstance"
+import axiosInstance, { setAccessToken } from "../../../utils/axiosInstance"
 import { useNavigate } from "react-router-dom";
-import validPassword from "../../utils/validPassword";
-import { validEmail } from '../../utils/validEmail';
+import validPassword from "../../../utils/validPassword";
+import { validEmail } from "../../../utils/validEmail";
 
 function AuthForm({type, setUser}) {
   const [inputs, setInputs] = useState({

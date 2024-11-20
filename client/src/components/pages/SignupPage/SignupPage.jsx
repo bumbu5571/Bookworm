@@ -1,5 +1,5 @@
 import React from 'react'
-import AuthForm from '../AuthForm/AuthForm'
+import AuthForm from "../../block/AuthForm/AuthForm"
 
 function SignupPage({setUser}) {
   return (
