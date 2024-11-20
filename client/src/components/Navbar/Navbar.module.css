@@ -1,0 +1,31 @@
+.wrapper {
+  margin: 0.5rem 0.5rem 0 0;
+}
+
+.wrapper ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+}
+
+.wrapper a {
+  display: block ;
+  height: 2.5rem;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: #000;
+  padding: .4rem;
+  border: .1rem solid ;
+  border-radius: 10px;
+}
+
+.wrapper img {
+  width: 32px;
+  height: 27px;
+  vertical-align: middle;
+  padding: .1rem;
+  border: 1px solid black;
+  border-radius: 50%;
+}

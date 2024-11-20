@@ -1,0 +1,84 @@
+.wrapper {
+  width: 30vw;
+  margin: 10rem auto;
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50px;
+  border: 2px solid;
+}
+
+.inputBox {
+  position: relative;
+  width: inherit;
+  margin: 0 auto;
+}
+ 
+.wrapper input {
+  width: 90%;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  padding: .8rem;
+  padding-right: 40px;
+  border-radius: 10px;
+}
+
+.wrapper button {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  padding: .6rem;
+  border-radius: 10px;
+}
+
+.valid {
+  display: none;
+  font-size: 1.3rem;
+  align-self: self-end;
+  margin-right: 5%;
+}
+
+.error {
+  display: none;
+  width: 98%;
+  margin: 0.2rem 0;
+  font-size: 1.3rem;
+  color: #F00;
+}
+
+.server {
+  pointer-events: auto;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28vw;
+  margin: 0 auto;
+  padding: 1rem;
+  font-size: 1.3rem;
+  text-align: center;
+  background-color: #DCDCDC;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.server button {
+  cursor: pointer;
+  padding: .3rem;
+  border-radius: 5px;
+  font-size: 1.3rem;
+}
+
+.iconShow {
+  position: absolute;
+  top: 1rem;
+  right: 11%;
+  width: 32px;
+  height: 27px;
+  cursor: pointer;
+  background-image: url("/icons/free-icon-font-eye-3917752.svg");
+  background-size: 32px 27px;
+  background-repeat: no-repeat;
+}
