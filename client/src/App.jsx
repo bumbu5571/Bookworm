@@ -40,7 +40,11 @@ function App() {
           element: <ProfilePage user={user} />
         }
       ]
-    }
+    },
+    {
+      path: "/test",
+      element:  <MainPage />,
+    },
   ]);
 
   return <RouterProvider router={router} />;
