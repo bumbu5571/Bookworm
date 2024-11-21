@@ -10,7 +10,7 @@ function MainPage() {
     <>
     <div>MainPage</div>
     {/* <BookCard/> */}
-    <EditForm/>
+    {/* <EditForm/> */}
     {/* <CreateForm/> */}
     {/* <CommentsForm/> */}
     </>
