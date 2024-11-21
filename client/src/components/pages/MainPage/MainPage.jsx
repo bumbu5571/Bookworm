@@ -1,9 +1,8 @@
+import style from "./MainPage.module.css"
 import React from 'react'
 import { useState, useEffect } from 'react';
 import axiosInstance from '../../../utils/axiosInstance';
-// import axios from 'axios';
 import BookCard from '../../block/BookCard/BookCard'
-
 
 function MainPage() {
   const [books, setBooks] = useState([]);
@@ -23,7 +22,8 @@ function MainPage() {
   console.log(books);
   return (
     <>
-      <div>Список всех книг:
+    <h2>Список всех книг:</h2>
+      <div>
         {books.map((el) => (
           <BookCard 
             key={el.id} 

@@ -9,6 +9,8 @@ import ProfilePage from "./components/pages/Profilepage/ProfilePage";
 import TestComponent from "./components/TestComponent/TestComponent";
 import UserBook from "./components/pages/UserBook/UserBook";
 import BookForm from "./components/pages/BookForm/BookForm";
+import FavoriteBooksList from "./components/pages/FavoriteBooksList/FavoriteBooksList";
+
 import UserBooksList from "./components/pages/UserBookList/UserBooksList";
 
 function App() {
@@ -50,6 +52,10 @@ function App() {
         {
           path: "/profile/:id",
           element: <ProfilePage user={user} />
+        },
+        {
+          path: "/favorites",
+          element: <FavoriteBooksList user={user} />
         },
         {
           path: "/book/:id",
