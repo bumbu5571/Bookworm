@@ -14,23 +14,6 @@
   width: inherit;
   margin: 0 auto;
 }
- 
-.wrapper input {
-  width: 90%;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  padding: .8rem;
-  padding-right: 40px;
-  border-radius: 10px;
-}
-
-.wrapper button {
-  display: inline-block;
-  margin-bottom: 0.5rem;
-  font-size: 1.3rem;
-  padding: .6rem;
-  border-radius: 10px;
-}
 
 .valid {
   display: none;
@@ -62,13 +45,6 @@
   background-color: #DCDCDC;
   border: 2px solid black;
   border-radius: 10px;
-}
-
-.server button {
-  cursor: pointer;
-  padding: .3rem;
-  border-radius: 5px;
-  font-size: 1.3rem;
 }
 
 .iconShow {
