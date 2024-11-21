@@ -1,44 +1,44 @@
 // seeders/YYYYMMDDHHMMSS-demo-users.js
 'use strict';
 
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Users', [
       {
-        username: 'Вася Терка',
+        name: 'Вася Терка',
         email: 'vasyaTerka@example.com',
-        passwordHash: await bcrypt.hash('терка123', 10),
+        password: await bcrypt.hash('терка123', 10),
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        username: 'Жора Кастрюлькин',
+        name: 'Жора Кастрюлькин',
         email: 'zhoraKastrulkin@example.com',
-        passwordHash: await bcrypt.hash('борщ456', 10),
+        password: await bcrypt.hash('борщ456', 10),
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        username: 'Зина Сковородкина',
+        name: 'Зина Сковородкина',
         email: 'zinaSkovorodkina@example.com',
-        passwordHash: await bcrypt.hash('яичница789', 10),
+        password: await bcrypt.hash('яичница789', 10),
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        username: 'Петя Половник',
+        name: 'Петя Половник',
         email: 'petyaPolovnik@example.com',
-        passwordHash: await bcrypt.hash('суп101112', 10),
+        password: await bcrypt.hash('суп101112', 10),
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        username: 'Люся Поварешкина',
+        name: 'Люся Поварешкина',
         email: 'lusyaPovareshkina@example.com',
-        passwordHash: await bcrypt.hash('котлета131415', 10),
+        password: await bcrypt.hash('котлета131415', 10),
         createdAt: new Date(),
         updatedAt: new Date()
       }
