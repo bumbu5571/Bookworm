@@ -20,6 +20,9 @@ function Navbar({ user, setUser}) {
   return (
     <nav className={style.wrapper}>
       <ul>
+        <li>
+          <Link to="/test">Test</Link>
+        </li>
         <li className={style.mainPage}>
           <Link to="/" >Главная страница</Link>
         </li>

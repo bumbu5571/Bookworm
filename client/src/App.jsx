@@ -6,6 +6,7 @@ import Root from "./Root";
 import { useEffect, useState } from "react";
 import axiosInstance, { setAccessToken } from "./utils/axiosInstance";
 import ProfilePage from "./components/pages/Profilepage/ProfilePage";
+import TestComponent from "./components/TestComponent/TestComponent";
 
 function App() {
   const [user, setUser] = useState({});
@@ -40,7 +41,11 @@ function App() {
           element: <ProfilePage user={user} />
         }
       ]
-    }
+    },
+    {
+      path: "/test",
+      element:  <TestComponent />,
+    },
   ]);
 
   return <RouterProvider router={router} />;
