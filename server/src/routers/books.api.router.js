@@ -1,6 +1,5 @@
 const router = require("express").Router();
-const { Book, Comment, User } = require("../../db/models");
-const { Book, Comment, Rating } = require("../../db/models");
+const { Book, Comment, User , Rating} = require("../../db/models");
 const verifyAccessToken = require("../middlewares/verifyAccessToken");
 router.get("/", async (req, res) => {
   try {
@@ -34,7 +33,7 @@ router.get("/:id/comments", async (req, res) => {
     res.json(comments);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Ошибка сервера" });
+    res.status(500).json({ message: "Ошибка сервера" })}});
 
 
 router.get("/user", verifyAccessToken, async (req, res) => {
