@@ -7,7 +7,7 @@ function CreateForm(){
 
 return(
   <div className={style.formcontainer}>
-    <h1>Редактировать книгу</h1>
+    <h1>Создать книгу</h1>
     <form action="/submit" method="post" enctype="multipart/form-data">
       <label for="book-title">Название книги</label>
       <input type="text" id="book-title" name="book-title" placeholder="Введите название книги" required/>
@@ -34,7 +34,7 @@ return(
       <label for="photo">Загрузить фото</label>
       <input type="file" id="photo" name="photo" accept="image/*"/>
 
-      <button type="submit">Обновить</button>
+      <button type="submit">Создать</button>
     </form>
   </div>
   )
