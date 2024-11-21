@@ -1,0 +1,138 @@
+/* body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */
+
+/* Карточка книги */
+.bookcard {
+  background-color: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Заголовок карточки */
+.bookcardheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Изображение книги */
+.bookimage img {
+  width: 60px;
+  height: 90px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* Информация о книге */
+.bookinfo {
+  flex-grow: 1;
+  margin-left: 15px;
+}
+
+.booktitle {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+
+.bookauthor {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #777;
+}
+
+/* Рейтинг */
+.bookrating {
+  background-color: #ffdddd;
+  border: 2px solid #f44;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #f44;
+  font-weight: bold;
+}
+
+/* Описание */
+.bookdescription {
+  font-size: 14px;
+  color: #555;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+/* Действия */
+.bookactions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  padding: 5px 10px;
+  /* Отступы внутри кнопки */
+  width: fit-content;
+  /* Размер кнопки под текст */
+  align-self: center;
+  /* Центровка кнопок по горизонтали */
+}
+
+/* Зеленая кнопка (по умолчанию) */
+.btndetails {
+  background-color: #5bc0de;
+}
+
+.btndetails:hover {
+  background-color: #45a049;
+  background-color: #46b8da;
+  transform: scale(1.02);
+}
+
+/* Синяя кнопка */
+.btnfavorite {
+  background-color: #4CAF50;
+}
+
+.btnfavorite:hover {
+  background-color: #45a049;
+  transform: scale(1.02);
+}
+
+/* Красная кнопка */
+.btnremove {
+  background-color: #f44;
+}
+
+.btnremove:hover {
+  background-color: #d32f2f;
+  transform: scale(1.02);
+}
