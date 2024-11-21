@@ -1,0 +1,38 @@
+const router = require("express").Router();
+const { Book, Comment, Rating } = require("../../db/models");
+const verifyAccessToken = require("../middlewares/verifyAccessToken");
+
+router.post("/",verifyAccessToken , async (req, res) => {
+  const { title, authorName, genre, description, commentText, ratingValue } = req.body;
+
+  if (!(title, authorName, genre, description)) {
+    return res.status(401).json({ message: "Необходимо заполнить все поля" });
+  }
+  try {
+    const book = await Book.create({
+      title,
+      authorName,
+      genre,
+      description,
+    });
+    if (book) {
+      const comment = await Comment.create({
+      commentText,
+      userId: res.locals.user.id,
+      bookId: book.bookId,
+    })
+
+    const rating = await Rating.create({
+      ratingValue,
+      userId: res.locals.user.id,
+      bookId: book.bookId,
+    })
+    }
+    res.sendStatus(200);
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ message: "Ошибка БД" });
+  }
+});
+
+module.exports = router;
