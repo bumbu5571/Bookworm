@@ -3,7 +3,7 @@ import style from "./BookCard.module.css";
 
 
 
-function BookCard({title, authorName}){
+function BookCard({title, authorName, description}){
 
 
 return (
@@ -18,11 +18,11 @@ return (
             <p className={style.bookauthor}>{authorName}</p>
           </div>
           <div className={style.bookrating}>
-            <span>3.2</span>
+            <span>3.5</span>
           </div>
         </div>
         <div className={style.bookdescription}>
-          <p>Краткое описание (первые 100 символов комментария)</p>
+          <p>{description}</p>
         </div>
         <div className={style.bookactions}>
           <button className={style.btndetails}>Подробно</button>

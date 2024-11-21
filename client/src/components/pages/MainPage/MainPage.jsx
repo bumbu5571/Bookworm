@@ -29,7 +29,9 @@ function MainPage() {
           <BookCard 
             key={el.id} 
             title={el.title}
-            authorName = {el.authorName}
+            authorName = {el.authorName}        
+            description = {el.description}  
+            genre = {el.genre}
           />
         ))}
       </div>
