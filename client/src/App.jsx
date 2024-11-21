@@ -8,6 +8,8 @@ import axiosInstance, { setAccessToken } from "./utils/axiosInstance";
 import ProfilePage from "./components/pages/Profilepage/ProfilePage";
 import TestComponent from "./components/TestComponent/TestComponent";
 import BookForm from "./components/pages/BookForm/BookForm";
+import FavoriteBooksList from "./components/pages/FavoriteBooksList/FavoriteBooksList";
+
 
 function App() {
   const [user, setUser] = useState({});
@@ -44,6 +46,10 @@ function App() {
         {
           path: "/profile/:id",
           element: <ProfilePage user={user} />
+        },
+        {
+          path: "/favorites",
+          element: <FavoriteBooksList user={user} />
         }
       ]
     },

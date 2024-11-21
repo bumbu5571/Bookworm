@@ -5,7 +5,7 @@ const verifyAccessToken = require("../middlewares/verifyAccessToken");
 router.get("/", async (req, res) => {
   try {
     const allbooks = await Book.findAll();
-    // console.log(allbooks);
+    console.log(allbooks);
     res.json(allbooks);
   } catch (error) {
     res.sendStatus(400);
