@@ -97,7 +97,7 @@ router.post("/", verifyAccessToken, async (req, res) => {
 
 router.patch("/:id", verifyAccessToken, async (req, res) => {
   const { id } = req.params;
-  const { title, authorName, genre, description, commentText, ratingValue } = req.body;
+  const { title, authorName, genre, description } = req.body;
 
   try {
     const book = await Book.findByPk(id);
@@ -117,41 +117,11 @@ router.patch("/:id", verifyAccessToken, async (req, res) => {
 
     await book.save();
 
-    let newComment;
-    if (commentText) {
-      newComment = await Comment.create({
-        commentText,
-        userId: req.userId,
-        bookId: book.bookId,
-      });
-    }
-
-    let updatedRating;
-    if (ratingValue) {
-      updatedRating = await Rating.findOne({ where: { userId: req.userId, bookId: book.bookId } });
-      if (updatedRating) {
-        updatedRating.ratingValue = ratingValue;
-        await updatedRating.save();
-      } else {
-        updatedRating = await Rating.create({
-          ratingValue,
-          userId: req.userId,
-          bookId: book.bookId,
-        });
-      }
-    }
-
-    const comments = await Comment.findAll({
-      where: { bookId: book.bookId },
-      include: [{ model: User, attributes: ['name'] }],
-    });
 
     res.status(200).json({ 
       message: "Книга успешно обновлена", 
       book,
       rating: updatedRating,
-      comments,
-      newComment 
     });
   } catch (error) {
     console.error(error);

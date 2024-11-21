@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import style from "./EditForm.module.css";
 
-function EditForm({ book, rating, comments, onUpdate }) {
+function EditForm({ book, onUpdate }) {
   const [formData, setFormData] = useState({
     title: '',
     authorName: '',
     genre: '',
     description: '',
-    commentText: '',
-    ratingValue: ''
   });
 
   useEffect(() => {
@@ -18,11 +16,9 @@ function EditForm({ book, rating, comments, onUpdate }) {
         authorName: book.authorName || '',
         genre: book.genre || '',
         description: book.description || '',
-        commentText: '',
-        ratingValue: rating ? rating.ratingValue : ''
       });
     }
-  }, [book, rating]);
+  }, [book, ]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -90,46 +86,11 @@ function EditForm({ book, rating, comments, onUpdate }) {
           required
         ></textarea>
         
-        <label htmlFor="comment">Комментарий</label>
-        <textarea
-          id="comment"
-          name="commentText"
-          value={formData.commentText}
-          onChange={handleChange}
-          rows="3"
-          placeholder="Введите ваш комментарий"
-        ></textarea>
-        
-        <label htmlFor="rating">Рейтинг</label>
-        <select
-          id="rating"
-          name="ratingValue"
-          value={formData.ratingValue}
-          onChange={handleChange}
-          required
-        >
-          <option value="" disabled>Выберите рейтинг</option>
-          <option value="1">1 - Плохо</option>
-          <option value="2">2 - Удовлетворительно</option>
-          <option value="3">3 - Средне</option>
-          <option value="4">4 - Хорошо</option>
-          <option value="5">5 - Отлично</option>
-        </select>
-        
         <label htmlFor="photo">Загрузить фото</label>
         <input type="file" id="photo" name="photo" accept="image/*"/>
         
         <button type="submit">Обновить</button>
       </form>
-
-      <div className={style.commentsSection}>
-        <h2>Комментарии</h2>
-        {comments.map(comment => (
-          <div key={comment.commentId} className={style.comment}>
-            <p>{comment.commentText}</p>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }

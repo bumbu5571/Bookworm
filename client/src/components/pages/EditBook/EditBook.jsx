@@ -6,8 +6,6 @@ import style from "./EditBook.module.css";
 
 function EditBook() {
   const [book, setBook] = useState(null);
-  const [rating, setRating] = useState(null);
-  const [comments, setComments] = useState([]);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -16,12 +14,6 @@ function EditBook() {
       try {
         const bookResponse = await axiosInstance.get(`${import.meta.env.VITE_API}/books/${id}`);
         setBook(bookResponse.data);
-
-        const ratingResponse = await axiosInstance.get(`${import.meta.env.VITE_API}/books/${id}/rating`);
-        setRating(ratingResponse.data);
-
-        const commentsResponse = await axiosInstance.get(`${import.meta.env.VITE_API}/books/${id}/comments`);
-        setComments(commentsResponse.data);
       } catch (err) {
         console.error(err);
         navigate('/');
@@ -47,9 +39,9 @@ function EditBook() {
   return (
     <div className={style.formcontainer}>
       <h1>Редактировать книгу</h1>
-      <EditForm book={book} rating={rating} comments={comments} onUpdate={handleUpdate} />
+      <EditForm book={book}  onUpdate={handleUpdate} />
     </div>
-  );
+  ); 
 }
 
 export default EditBook;
