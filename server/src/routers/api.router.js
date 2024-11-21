@@ -1,11 +1,12 @@
 const router = require("express").Router();
 const authRouter = require("./auth.router");
 const tokenRouter = require("./token.api.router");
-const bookRouter = require("./book.router")
+const booksRouter = require("./books.api.router");
+
 
 router.use("/auth", authRouter);
 router.use("/tokens", tokenRouter);
 
-router.use("/books", bookRouter)
+router.use("/books", booksRouter);
 
 module.exports = router;
