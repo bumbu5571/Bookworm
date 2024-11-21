@@ -23,7 +23,6 @@ function MainPage() {
   console.log(books);
   return (
     <>
-    <div>MainPage</div>
       <div>Список всех книг:
         {books.map((el) => (
           <BookCard 
