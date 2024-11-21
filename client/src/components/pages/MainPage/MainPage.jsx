@@ -1,18 +1,38 @@
 import React from 'react'
-
+import { useState, useEffect } from 'react';
+import axiosInstance from '../../../utils/axiosInstance';
+// import axios from 'axios';
 import BookCard from '../../block/BookCard/BookCard'
-import EditForm from '../../block/EditForm/EditForm'
-import CreateForm from '../../block/CreateForm/CreateForm'
-import CommentsForm from '../../block/CommentsForm/CommentsForm'
+
 
 function MainPage() {
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    axiosInstance
+      .get(`${import.meta.env.VITE_API}/books`)
+      .then((res) => {
+        setBooks(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+        setBooks([]);
+      });
+  }, []);
+
+  console.log(books);
   return (
     <>
     <div>MainPage</div>
-    {/* <BookCard/> */}
-    {/* <EditForm/> */}
-    {/* <CreateForm/> */}
-    {/* <CommentsForm/> */}
+      <div>Список всех книг:
+        {books.map((el) => (
+          <BookCard 
+            key={el.id} 
+            title={el.title}
+            authorName = {el.authorName}
+          />
+        ))}
+      </div>
     </>
   )
 }

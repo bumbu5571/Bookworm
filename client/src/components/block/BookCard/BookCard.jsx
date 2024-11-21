@@ -3,7 +3,7 @@ import style from "./BookCard.module.css";
 
 
 
-function BookCard(){
+function BookCard({title, authorName}){
 
 
 return (
@@ -14,8 +14,8 @@ return (
             <img src="placeholder.png" alt="Обложка книги"/>
           </div>
           <div className={style.bookinfo}>
-            <h2 className={style.booktitle}>Топор в каше</h2>
-            <p className={style.bookauthor}>Лебедев П.А.</p>
+            <h2 className={style.booktitle}>{title}</h2>
+            <p className={style.bookauthor}>{authorName}</p>
           </div>
           <div className={style.bookrating}>
             <span>3.2</span>
