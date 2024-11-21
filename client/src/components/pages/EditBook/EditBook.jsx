@@ -27,8 +27,6 @@ function EditBook() {
     try {
       const response = await axiosInstance.patch(`${import.meta.env.VITE_API}/books/${id}`, updatedData);
       setBook(response.data.book);
-      setRating(response.data.rating);
-      setComments(response.data.comments);
     } catch (error) {
       console.error('Error updating book:', error);
     }

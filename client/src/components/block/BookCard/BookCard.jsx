@@ -1,14 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import style from "./BookCard.module.css";
 
+function BookCard({id, title, authorName, description}) {
+  const navigate = useNavigate();
+  const handleDetailsClick = () => {
+    navigate(`/book/${id}`);
+  };
 
-
-function BookCard({title, authorName, description}){
-
-
-return (
-      <>
-        <div className={style.bookcard}>
+  return (
+      <div className={style.bookcard}>
         <div className={style.bookcardheader}>
           <div className={style.bookimage}>
             <img src="placeholder.png" alt="Обложка книги"/>
@@ -25,12 +26,11 @@ return (
           <p>{description}</p>
         </div>
         <div className={style.bookactions}>
-          <button className={style.btndetails}>Подробно</button>
+          <button className={style.btndetails} onClick={handleDetailsClick}>Подробно</button>
           <button className={style.btnfavorite}>Добавить в избранное</button>
           <button className={style.btnremove}>Удалить с избранного</button>
         </div>
       </div>
-      </>
   )
 }
 
