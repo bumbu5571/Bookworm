@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import style from "./EditForm.module.css";
 
-function EditForm({ book, onUpdate }) {
+function EditForm({ book, rating, comments, onUpdate }) {
   const [formData, setFormData] = useState({
     title: '',
     authorName: '',
@@ -19,10 +19,10 @@ function EditForm({ book, onUpdate }) {
         genre: book.genre || '',
         description: book.description || '',
         commentText: '',
-        ratingValue: ''
+        ratingValue: rating ? rating.ratingValue : ''
       });
     }
-  }, [book]);
+  }, [book, rating]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -121,6 +121,15 @@ function EditForm({ book, onUpdate }) {
         
         <button type="submit">Обновить</button>
       </form>
+
+      <div className={style.commentsSection}>
+        <h2>Комментарии</h2>
+        {comments.map(comment => (
+          <div key={comment.commentId} className={style.comment}>
+            <p>{comment.commentText}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

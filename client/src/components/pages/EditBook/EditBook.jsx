@@ -6,24 +6,37 @@ import style from "./EditBook.module.css";
 
 function EditBook() {
   const [book, setBook] = useState(null);
+  const [rating, setRating] = useState(null);
+  const [comments, setComments] = useState([]);
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    axiosInstance.get(`${import.meta.env.VITE_API}/books/${id}`)
-      .then(res => {
-        setBook(res.data);
-      })
-      .catch(err => {
+    const fetchBookData = async () => {
+      try {
+        const bookResponse = await axiosInstance.get(`${import.meta.env.VITE_API}/books/${id}`);
+        setBook(bookResponse.data);
+
+        const ratingResponse = await axiosInstance.get(`${import.meta.env.VITE_API}/books/${id}/rating`);
+        setRating(ratingResponse.data);
+
+        const commentsResponse = await axiosInstance.get(`${import.meta.env.VITE_API}/books/${id}/comments`);
+        setComments(commentsResponse.data);
+      } catch (err) {
         console.error(err);
         navigate('/');
-      });
+      }
+    };
+
+    fetchBookData();
   }, [id, navigate]);
 
   const handleUpdate = async (updatedData) => {
     try {
       const response = await axiosInstance.patch(`${import.meta.env.VITE_API}/books/${id}`, updatedData);
       setBook(response.data.book);
+      setRating(response.data.rating);
+      setComments(response.data.comments);
     } catch (error) {
       console.error('Error updating book:', error);
     }
@@ -32,9 +45,9 @@ function EditBook() {
   if (!book) return <div>Загрузка...</div>;
 
   return (
-    <div className={style.editBookContainer}>
+    <div className={style.formcontainer}>
       <h1>Редактировать книгу</h1>
-      <EditForm book={book} onUpdate={handleUpdate} />
+      <EditForm book={book} rating={rating} comments={comments} onUpdate={handleUpdate} />
     </div>
   );
 }

@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
 });
 
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", verifyAccessToken, async (req, res) => {
   try {
     const book = await Book.findByPk(req.params.id);
     if (!book) {
@@ -34,6 +34,18 @@ router.get("/:id/comments", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Ошибка сервера" })}});
+
+    router.get("/:id/rating", verifyAccessToken, async (req, res) => {
+      try {
+        const rating = await Rating.findOne({
+          where: { bookId: req.params.id, userId: req.userId }
+        });
+        res.json(rating);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Ошибка сервера" });
+      }
+    });
 
 
 router.get("/user", verifyAccessToken, async (req, res) => {
@@ -83,7 +95,7 @@ router.post("/", verifyAccessToken, async (req, res) => {
   }
 });
 
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", verifyAccessToken, async (req, res) => {
   const { id } = req.params;
   const { title, authorName, genre, description, commentText, ratingValue } = req.body;
 
@@ -94,7 +106,10 @@ router.patch("/:id", async (req, res) => {
       return res.status(404).json({ message: "Книга не найдена" });
     }
 
-    // Обновляем только те поля, которые были переданы в запросе
+    if (book.creatorId !== req.userId) {
+      return res.status(403).json({ message: "У вас нет прав на редактирование этой книги" });
+    }
+
     if (title) book.title = title;
     if (authorName) book.authorName = authorName;
     if (genre) book.genre = genre;
@@ -102,23 +117,42 @@ router.patch("/:id", async (req, res) => {
 
     await book.save();
 
+    let newComment;
     if (commentText) {
-      await Comment.create({
+      newComment = await Comment.create({
         commentText,
-        userId: req.user.id, // Предполагается, что у вас есть middleware для аутентификации
+        userId: req.userId,
         bookId: book.bookId,
       });
     }
 
+    let updatedRating;
     if (ratingValue) {
-      await Rating.create({
-        ratingValue,
-        userId: req.user.id, // Предполагается, что у вас есть middleware для аутентификации
-        bookId: book.bookId,
-      });
+      updatedRating = await Rating.findOne({ where: { userId: req.userId, bookId: book.bookId } });
+      if (updatedRating) {
+        updatedRating.ratingValue = ratingValue;
+        await updatedRating.save();
+      } else {
+        updatedRating = await Rating.create({
+          ratingValue,
+          userId: req.userId,
+          bookId: book.bookId,
+        });
+      }
     }
 
-    res.status(200).json({ message: "Книга успешно обновлена", book });
+    const comments = await Comment.findAll({
+      where: { bookId: book.bookId },
+      include: [{ model: User, attributes: ['name'] }],
+    });
+
+    res.status(200).json({ 
+      message: "Книга успешно обновлена", 
+      book,
+      rating: updatedRating,
+      comments,
+      newComment 
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Ошибка при обновлении книги" });
