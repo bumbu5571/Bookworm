@@ -1,0 +1,143 @@
+/* Карточка книги */
+.userBook {
+  background-color: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Заголовок карточки */
+.userBookHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Изображение книги */
+.bookImage img {
+  width: 60px;
+  height: 90px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* Информация о книге */
+.bookInfo {
+  flex-grow: 1;
+  margin-left: 15px;
+}
+
+.bookTitle {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+
+.bookAuthor {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #777;
+}
+
+/* Рейтинг */
+.bookRating {
+  background-color: #ffdddd;
+  border: 2px solid #f44;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #f44;
+  font-weight: bold;
+}
+
+/* Описание */
+.bookDescription {
+  font-size: 14px;
+  color: #555;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+/* Действия */
+.bookActions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  padding: 5px 10px;
+  width: fit-content;
+  align-self: center;
+}
+
+/* Синяя кнопка */
+.btnDetails {
+  background-color: #5bc0de;
+}
+
+.btnDetails:hover {
+  background-color: #46b8da;
+  transform: scale(1.02);
+}
+
+/* Зеленая кнопка */
+.btnAddComment {
+  background-color: #4CAF50;
+}
+
+.btnAddComment:hover {
+  background-color: #45a049;
+  transform: scale(1.02);
+}
+
+/* Красная кнопка */
+.btnRemoveComment {
+  background-color: #f44;
+}
+
+.btnRemoveComment:hover {
+  background-color: #d32f2f;
+  transform: scale(1.02);
+}
+
+/* Комментарии */
+.comment {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.comment p {
+  margin: 5px 0;
+}
+button {
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  padding: .6rem;
+  border-radius: 10px;
+}

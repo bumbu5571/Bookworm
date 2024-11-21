@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import axiosInstance, { setAccessToken } from "./utils/axiosInstance";
 import ProfilePage from "./components/pages/Profilepage/ProfilePage";
 import TestComponent from "./components/TestComponent/TestComponent";
+import UserBook from "./components/pages/UserBook/UserBook";
 
 function App() {
   const [user, setUser] = useState({});
@@ -39,6 +40,10 @@ function App() {
         {
           path: "/profile/:id",
           element: <ProfilePage user={user} />
+        },
+        {
+          path: "/book/:id",
+          element: <UserBook user={user}/>
         }
       ]
     },
