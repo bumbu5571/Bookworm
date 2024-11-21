@@ -83,5 +83,47 @@ router.post("/", verifyAccessToken, async (req, res) => {
   }
 });
 
+router.patch("/:id", async (req, res) => {
+  const { id } = req.params;
+  const { title, authorName, genre, description, commentText, ratingValue } = req.body;
+
+  try {
+    const book = await Book.findByPk(id);
+
+    if (!book) {
+      return res.status(404).json({ message: "Книга не найдена" });
+    }
+
+    // Обновляем только те поля, которые были переданы в запросе
+    if (title) book.title = title;
+    if (authorName) book.authorName = authorName;
+    if (genre) book.genre = genre;
+    if (description) book.description = description;
+
+    await book.save();
+
+    if (commentText) {
+      await Comment.create({
+        commentText,
+        userId: req.user.id, // Предполагается, что у вас есть middleware для аутентификации
+        bookId: book.bookId,
+      });
+    }
+
+    if (ratingValue) {
+      await Rating.create({
+        ratingValue,
+        userId: req.user.id, // Предполагается, что у вас есть middleware для аутентификации
+        bookId: book.bookId,
+      });
+    }
+
+    res.status(200).json({ message: "Книга успешно обновлена", book });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Ошибка при обновлении книги" });
+  }
+});
+
 module.exports = router;
 
