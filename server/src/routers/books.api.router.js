@@ -5,7 +5,6 @@ const verifyAccessToken = require("../middlewares/verifyAccessToken");
 router.get("/", async (req, res) => {
   try {
     const allbooks = await Book.findAll();
-    // console.log(allbooks);
     res.json(allbooks);
   } catch (error) {
     res.sendStatus(400);
@@ -38,8 +37,21 @@ router.get("/:id/comments", async (req, res) => {
     res.status(500).json({ message: "Ошибка сервера" });
 
 
-router.post("/",verifyAccessToken , async (req, res) => {
-  const { title, authorName, genre, description, commentText, ratingValue } = req.body;
+router.get("/user", verifyAccessToken, async (req, res) => {
+  try {
+    const books = await Book.findAll({
+      where: { creatorId: res.locals.user.id },
+    });
+    res.status(200).json(books);
+  } catch (error) {
+    console.error(error)
+    res.status(400).json({ message: "Ошибка БД" });
+  }
+});
+
+router.post("/", verifyAccessToken, async (req, res) => {
+  const { title, authorName, genre, description, commentText, ratingValue } =
+    req.body;
 
   if (!(title, authorName, genre, description)) {
     return res.status(401).json({ message: "Необходимо заполнить все поля" });
@@ -50,19 +62,20 @@ router.post("/",verifyAccessToken , async (req, res) => {
       authorName,
       genre,
       description,
+      creatorId: res.locals.user.id,
     });
     if (book) {
       const comment = await Comment.create({
-      commentText,
-      userId: res.locals.user.id,
-      bookId: book.bookId,
-    })
+        commentText,
+        userId: res.locals.user.id,
+        bookId: book.bookId,
+      });
 
-    const rating = await Rating.create({
-      ratingValue,
-      userId: res.locals.user.id,
-      bookId: book.bookId,
-    })
+      const rating = await Rating.create({
+        ratingValue,
+        userId: res.locals.user.id,
+        bookId: book.bookId,
+      });
     }
     res.sendStatus(200);
   } catch (error) {

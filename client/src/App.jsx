@@ -9,6 +9,7 @@ import ProfilePage from "./components/pages/Profilepage/ProfilePage";
 import TestComponent from "./components/TestComponent/TestComponent";
 import UserBook from "./components/pages/UserBook/UserBook";
 import BookForm from "./components/pages/BookForm/BookForm";
+import UserBooksList from "./components/pages/UserBookList/UserBooksList";
 
 function App() {
   const [user, setUser] = useState({});
@@ -37,6 +38,10 @@ function App() {
         {
           path: "/signup",
           element: <SignupPage setUser={setUser} />
+        },
+        {
+          path: "/userbooks",
+          element: <UserBooksList setUser={setUser} />
         },
         {
           path: "/createbook",
