@@ -8,7 +8,7 @@ function BookCard({id, title, authorName, description}) {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [bookRating, setBookRating] = useState(0);
-  const imagePath = `/public/pik/${id}.png`;
+  const imagePath = `/pik/${id}.png`;
 
   const handleDetailsClick = () => {
     navigate(`/book/${id}`);
@@ -44,7 +44,7 @@ function BookCard({id, title, authorName, description}) {
               style={{ cursor: 'pointer' }}
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = "/public/pik/default.png"
+                e.target.src = "/pik/default.png"
               }}
             />
           </div>
