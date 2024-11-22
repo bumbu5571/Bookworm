@@ -1,5 +1,6 @@
 .wrapper {
-  margin: 0.5rem 0.5rem 0 0;
+  padding: .5rem 1rem .5rem 0;
+  background-color: #886750;
 }
 
 .wrapper ul {
@@ -10,21 +11,25 @@
   margin: 0;
 }
 
+.wrapper li {
+  
+}
+
 .wrapper a {
-  display: block ;
-  height: 2.5rem;
-  font-size: 1.3rem;
-  color: #000;
+  height: 100%;
+  display: inline-block;
+  font-weight: 700;
+  color: #292021;
   padding: .4rem;
-  border: .1rem solid ;
+  background-color: #e1d9ce;
+  /* border: .1rem solid ; */
   border-radius: 10px;
 }
 
 .wrapper img {
   width: 32px;
-  height: 27px;
+  height: inherit;
   vertical-align: middle;
-  padding: .1rem;
   border: 1px solid black;
   border-radius: 50%;
 }

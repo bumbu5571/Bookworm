@@ -1,5 +1,4 @@
-
-// import style from "./FavoriteBooksList.css"
+import style from "./FavoriteBooksList.module.css"
 import React from 'react'
 import { useState, useEffect } from 'react';
 import axiosInstance from '../../../utils/axiosInstance';
@@ -24,8 +23,8 @@ function FavoriteBooksList() {
 
   return (
     <>
-    <h2>Избранное:</h2>
       <div>
+        <h2 className={style.wrapper}>Избранное:</h2>
         {favs.map((el) => (
           <BookCard
             key={el.Book.id} 

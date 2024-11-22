@@ -41,7 +41,7 @@ function UserBook() {
           <p className={style.bookAuthor}>{book.authorName}</p>
         </div>
         <div className={style.bookRating}>
-          <span>{book.rating}</span>
+          <span>{book.rating}3</span>
         </div>
       </div>
       <div className={style.bookDescription}>

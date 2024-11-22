@@ -3,7 +3,10 @@
   width: 50vw;
   margin: 5rem auto;
   border-radius: 10px;
-  border: 2px solid black;
+  border: 3px solid #e1d9ce;
+  background-color: #886750;
+  color: #292021;
+  font-size: 1.1rem;
 }
 
 .wrapper * {
@@ -17,6 +20,6 @@
   width: 8rem;
   height: 8rem;
   padding: .5rem;
-  border: 1px solid black;
+  border: 1px solid #e1d9ce;
   border-radius: 50%;
 }

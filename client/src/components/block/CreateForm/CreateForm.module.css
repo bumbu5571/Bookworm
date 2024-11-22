@@ -1,24 +1,14 @@
-/* body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f5f5f5;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-} */
-
 /* Контейнер формы */
 .formcontainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 5rem auto;
-  background-color: #ffffff;
+  background-color: #886750;
+  border: 3px solid #e1d9ce;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-  width: 400px;
+  width: 40vw;
   padding: 30px 25px 30px 20px;
   text-align: center;
   gap: 20px;
@@ -26,8 +16,8 @@
 
 .formcontainer h1 {
   margin: 0;
-  font-size: 24px;
-  color: #333;
+  font-size: 2rem;
+  color: #e1d9ce;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -45,7 +35,7 @@
 /* Стили для элементов формы */
 .formcontainer label {
   font-weight: bold;
-  color: #444;
+  color: #e1d9ce;
   margin-bottom: 5px;
 }
 
@@ -54,10 +44,10 @@ textarea,
 select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: #f9f9f9;
-  font-size: 14px;
+  background-color: #e1d9ce;
+  color: #292021;
+  font-size: 1.1rem;
   transition: box-shadow 0.3s, border-color 0.3s;
 }
 
@@ -74,8 +64,8 @@ select:focus {
   padding: 12px;
   border: none;
   border-radius: 8px;
-  background-color: #4CAF50;
-  color: #fff;
+  background-color: #e1d9ce;
+  color: #292021;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;

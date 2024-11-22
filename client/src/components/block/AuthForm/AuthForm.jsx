@@ -170,6 +170,7 @@ function AuthForm({type, setUser}) {
     <form onSubmit={submitHandler} className={style.wrapper} >
       {type === "signin" && (
         <>
+        <h2>Войти: </h2>
         <div className={style.inputBox}>
           <input onFocus={focusHandler} onChange={changeHandler} type="email" name='email' placeholder='Электронная почта' />
         </div>
@@ -183,6 +184,7 @@ function AuthForm({type, setUser}) {
       )}
       {type === "signup" && (
         <>
+        <h2>Регистрация: </h2>
         <div className={style.inputBox}><input onChange={changeHandler} type="text" name='name' placeholder='Имя пользователя' /></div>
         <div className={style.inputBox}>
           <input ref={refInputEmail} onFocus={focusHandler} onBlur={blurHandler} onChange={changeHandler} type="email" name='email' placeholder='Электронная почта' />
