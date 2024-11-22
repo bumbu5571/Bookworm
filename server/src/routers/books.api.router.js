@@ -49,15 +49,39 @@ router.get("/:id/comments", async (req, res) => {
   }
 });
 
-router.get("/:id/rating", verifyAccessToken, async (req, res) => {
-  try {
-    const rating = await Rating.findOne({
-      where: { bookId: req.params.id, userId: req.userId },
+    router.get("/:id/rating", verifyAccessToken, async (req, res) => {
+      try {
+        const rating = await Rating.findOne({
+          where: { bookId: req.params.id, userId: req.userId }
+        });
+        res.json(rating);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Ошибка сервера" });
+      }
     });
-    res.json(rating);
+
+    router.get("/:id/ratings", async (req, res) => {
+      try {
+        const ratings = await Rating.findAll({
+          where: { bookId: req.params.id }
+        });
+        res.json(ratings);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Ошибка сервера" });
+      }
+    });
+
+router.get("/user", verifyAccessToken, async (req, res) => {
+  try {
+    const books = await Book.findAll({
+      where: { creatorId: res.locals.user.id },
+    });
+    res.status(200).json(books);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Ошибка сервера" });
+    console.error(error)
+    res.status(400).json({ message: "Ошибка БД" });
   }
 });
 

@@ -1,22 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axiosInstance from '../../../utils/axiosInstance';
 import style from "./UserBook.module.css";
 
 function UserBook() {
+  const navigate = useNavigate();
   const [book, setBook] = useState(null);
   const [comments, setComments] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
-    axiosInstance.get(`${import.meta.env.VITE_API}/books/${id}`)
-      .then(res => setBook(res.data))
-      .catch(err => console.error(err));
-
-    axiosInstance.get(`${import.meta.env.VITE_API}/books/${id}/comments`)
-      .then(res => setComments(res.data))
-      .catch(err => console.error(err));
-  }, [id]);
+    const fetchData = async () => {
+      try {
+        const [bookResponse, commentsResponse] = await Promise.all([
+          axiosInstance.get(`${import.meta.env.VITE_API}/books/${id}`),
+          axiosInstance.get(`${import.meta.env.VITE_API}/books/${id}/comments`)
+        ]);
+        setBook(bookResponse.data);
+        setComments(commentsResponse.data);
+      } catch (err) {
+        console.error(err);
+        navigate('/');  // Редирект при ошибке
+      }
+    };
+    fetchData();
+  }, [id, navigate]);
 
   const handleAddComment = () => {
     // Логика добавления комментария
@@ -48,7 +56,6 @@ function UserBook() {
         <p><strong>Жанр:</strong> {book.genre}</p>
         <p><strong>Описание:</strong> {book.description}</p>
       </div>
-
       <h2>Комментарии</h2>
       {comments.map(comment => (
         <div key={comment.commentId} className={style.comment}>
