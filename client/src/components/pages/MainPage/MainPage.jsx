@@ -21,7 +21,8 @@ function MainPage() {
 
   return (
     <>
-      <div>
+      <div className={style.wrapper}>
+        <h2>Список книг:</h2>
       {books.map((book) => (
         <BookCard
           key={book.bookId}

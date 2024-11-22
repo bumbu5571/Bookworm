@@ -67,10 +67,6 @@ function App() {
         }
       ]
     },
-    {
-      path: "/test",
-      element:  <TestComponent />,
-    },
   ]);
 
   return <RouterProvider router={router} />;

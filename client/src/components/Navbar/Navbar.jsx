@@ -25,7 +25,6 @@ function Navbar({ user, setUser}) {
   </div>
 
   <div className={style.userSection}>
-    <Link to="/test">Test</Link>
     {user?.name ? (
       <div className={style.userInfo}>
         <Link to="/userbooks">Мои книги</Link>

@@ -27,7 +27,7 @@
   flex: 1;
   /* Занять доступное пространство */
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   /* Центрирование внутри */
   gap: 20px;
   /* Расстояние между ссылками */
@@ -37,7 +37,7 @@
   flex: 2;
   /* Занять больше пространства для распределения */
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   /* Пространство вокруг элементов */
   align-items: center;
 }
@@ -63,7 +63,7 @@
   /* Выравнивание текста и аватара */
   gap: 8px;
   text-decoration: none;
-  color: white;
+  color: #292021;
   font-weight: bold;
 }
 
@@ -71,11 +71,11 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid white;
+  border: 2px solid #e1d9ce;
 }
 
 .logout {
-  color: white;
+  color: #292021;
   text-decoration: none;
   font-weight: bold;
   cursor: pointer;
@@ -83,16 +83,19 @@
 }
 
 .logout:hover {
-  color: #e1d9ce;
+  color: #886750;
 }
 
 a {
   text-decoration: none;
-  color: white;
+  padding: 0.4rem;
+  color: #292021;
+  background-color: #e1d9ce;
+  border-radius: 10px;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #e1d9ce;
+  color: #886750;
 }
