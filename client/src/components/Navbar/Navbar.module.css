@@ -1,35 +1,98 @@
 .wrapper {
-  padding: .5rem 1rem .5rem 0;
-  background-color: #886750;
-}
-
-.wrapper ul {
   display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  list-style: none;
-  margin: 0;
+  justify-content: space-around;
+  /* Пространство вокруг секций */
+  align-items: center;
+  /* Центрирование по вертикали */
+  width: 100%;
+  /* Занять всю ширину */
+  padding: 15px 20px;
+  background-color: #886750;
+  /* Цвет фона */
+  color: white;
+  /* Цвет текста */
+  position: fixed;
+  /* Фиксируем панель */
+  top: 0;
+  /* Расположить сверху */
+  left: 0;
+  /* Привязка к левому краю */
+  z-index: 1000;
+  /* Поверх остальных элементов */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  /* Лёгкая тень для отделения от контента */
 }
 
-.wrapper li {
-  
+.links {
+  flex: 1;
+  /* Занять доступное пространство */
+  display: flex;
+  justify-content: center;
+  /* Центрирование внутри */
+  gap: 20px;
+  /* Расстояние между ссылками */
 }
 
-.wrapper a {
-  height: 100%;
-  display: inline-block;
-  font-weight: 700;
-  color: #292021;
-  padding: .4rem;
-  background-color: #e1d9ce;
-  /* border: .1rem solid ; */
-  border-radius: 10px;
+.userSection {
+  flex: 2;
+  /* Занять больше пространства для распределения */
+  display: flex;
+  justify-content: space-around;
+  /* Пространство вокруг элементов */
+  align-items: center;
 }
 
-.wrapper img {
-  width: 32px;
-  height: inherit;
-  vertical-align: middle;
-  border: 1px solid black;
+.userInfo {
+  display: flex;
+  align-items: center;
+  /* Центрирование текста и аватара */
+  gap: 35px;
+  /* Расстояние между элементами */
+}
+
+.authLinks {
+  display: flex;
+  justify-content: space-around;
+  /* Пространство вокруг ссылок */
+  gap: 10px;
+}
+
+.profileLink {
+  display: flex;
+  align-items: center;
+  /* Выравнивание текста и аватара */
+  gap: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  border: 2px solid white;
+}
+
+.logout {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.logout:hover {
+  color: #e1d9ce;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #e1d9ce;
 }

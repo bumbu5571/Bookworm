@@ -13,7 +13,8 @@ function UserBooksList({user}) {
 
   return (
       <>
-      <div>Мои книги
+      <div className={style.wrapper}>
+        Мои книги
       {books.map((el) => (
           <BookCard 
             key={el.id} 

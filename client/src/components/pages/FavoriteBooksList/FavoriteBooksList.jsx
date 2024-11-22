@@ -28,6 +28,7 @@ function FavoriteBooksList() {
         {favs.map((el) => (
           <BookCard
             key={el.Book.id} 
+            id={el.Book.bookId} 
             title={el.Book.title}
             authorName = {el.Book.authorName}        
             description = {el.Book.description}  

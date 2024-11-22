@@ -7,7 +7,8 @@ const verifyAccessToken = (req, res, next) => {
 
     const token = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
     res.locals.user = token.user;
-
+    const decoded = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
+    req.userId = decoded.user.id;
     next();
   } catch (error) {
     console.error(`Invalid access token: ${error}`);

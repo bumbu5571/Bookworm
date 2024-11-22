@@ -19,20 +19,19 @@ function MainPage() {
       });
   }, []);
 
-  console.log(books);
   return (
     <>
       <div>
-        <h2 className={style.wrapper}>Список всех книг:</h2>
-        {books.map((el) => (
-          <BookCard 
-            key={el.id} 
-            title={el.title}
-            authorName = {el.authorName}        
-            description = {el.description}  
-            genre = {el.genre}
-          />
-        ))}
+      {books.map((book) => (
+        <BookCard
+          key={book.bookId}
+          id={book.bookId}
+          title={book.title}
+          authorName={book.authorName}
+          description={book.description}
+          genre={book.genre}
+        />
+      ))}
       </div>
     </>
   )

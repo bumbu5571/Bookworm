@@ -11,6 +11,7 @@ import UserBook from "./components/pages/UserBook/UserBook";
 import BookForm from "./components/pages/BookForm/BookForm";
 import FavoriteBooksList from "./components/pages/FavoriteBooksList/FavoriteBooksList";
 import UserBooksList from "./components/pages/UserBookList/UserBooksList";
+import EditBook from "./components/pages/EditBook/EditBook";
 
 function App() {
   const [user, setUser] = useState({});
@@ -47,6 +48,10 @@ function App() {
         {
           path: "/createbook",
           element: <BookForm setUser={setUser} />
+        },
+        {
+          path: "/editbook/:id",
+          element: <EditBook />
         },
         {
           path: "/profile/:id",

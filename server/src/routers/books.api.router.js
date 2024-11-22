@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
 });
 
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", verifyAccessToken, async (req, res) => {
   try {
     const book = await Book.findByPk(req.params.id);
     if (!book) {
@@ -34,6 +34,18 @@ router.get("/:id/comments", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Ошибка сервера" })}});
+
+    router.get("/:id/rating", verifyAccessToken, async (req, res) => {
+      try {
+        const rating = await Rating.findOne({
+          where: { bookId: req.params.id, userId: req.userId }
+        });
+        res.json(rating);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Ошибка сервера" });
+      }
+    });
 
 
 router.get("/user", verifyAccessToken, async (req, res) => {
@@ -80,6 +92,40 @@ router.post("/", verifyAccessToken, async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(400).json({ message: "Ошибка БД" });
+  }
+});
+
+router.patch("/:id", verifyAccessToken, async (req, res) => {
+  const { id } = req.params;
+  const { title, authorName, genre, description } = req.body;
+
+  try {
+    const book = await Book.findByPk(id);
+
+    if (!book) {
+      return res.status(404).json({ message: "Книга не найдена" });
+    }
+
+    if (book.creatorId !== req.userId) {
+      return res.status(403).json({ message: "У вас нет прав на редактирование этой книги" });
+    }
+
+    if (title) book.title = title;
+    if (authorName) book.authorName = authorName;
+    if (genre) book.genre = genre;
+    if (description) book.description = description;
+
+    await book.save();
+
+
+    res.status(200).json({ 
+      message: "Книга успешно обновлена", 
+      book,
+      rating: updatedRating,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Ошибка при обновлении книги" });
   }
 });
 
