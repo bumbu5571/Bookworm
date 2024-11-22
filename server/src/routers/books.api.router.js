@@ -1,6 +1,7 @@
 const router = require("express").Router();
-const { Book, Comment, User , Rating} = require("../../db/models");
+const { Book, Comment, User, Rating } = require("../../db/models");
 const verifyAccessToken = require("../middlewares/verifyAccessToken");
+
 router.get("/", async (req, res) => {
   try {
     const allbooks = await Book.findAll();
@@ -10,6 +11,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/user", verifyAccessToken, async (req, res) => {
+  try {
+    const books = await Book.findAll({
+      where: { creatorId: req.userId },
+    });
+    res.status(200).json(books);
+  } catch (error) {
+    console.error(error)
+    res.status(400).json({ message: "Ошибка БД" });
+  }
+});
 
 router.get("/:id", verifyAccessToken, async (req, res) => {
   try {
@@ -28,35 +40,24 @@ router.get("/:id/comments", async (req, res) => {
   try {
     const comments = await Comment.findAll({
       where: { bookId: req.params.id },
-      include: [{ model: User, attributes: ['name'] }],
+      include: [{ model: User, attributes: ["name"] }],
     });
     res.json(comments);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Ошибка сервера" })}});
+    res.status(500).json({ message: "Ошибка сервера" });
+  }
+});
 
-    router.get("/:id/rating", verifyAccessToken, async (req, res) => {
-      try {
-        const rating = await Rating.findOne({
-          where: { bookId: req.params.id, userId: req.userId }
-        });
-        res.json(rating);
-      } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: "Ошибка сервера" });
-      }
-    });
-
-
-router.get("/user", verifyAccessToken, async (req, res) => {
+router.get("/:id/rating", verifyAccessToken, async (req, res) => {
   try {
-    const books = await Book.findAll({
-      where: { creatorId: res.locals.user.id },
+    const rating = await Rating.findOne({
+      where: { bookId: req.params.id, userId: req.userId },
     });
-    res.status(200).json(books);
+    res.json(rating);
   } catch (error) {
-    console.error(error)
-    res.status(400).json({ message: "Ошибка БД" });
+    console.error(error);
+    res.status(500).json({ message: "Ошибка сервера" });
   }
 });
 
@@ -107,7 +108,9 @@ router.patch("/:id", verifyAccessToken, async (req, res) => {
     }
 
     if (book.creatorId !== req.userId) {
-      return res.status(403).json({ message: "У вас нет прав на редактирование этой книги" });
+      return res
+        .status(403)
+        .json({ message: "У вас нет прав на редактирование этой книги" });
     }
 
     if (title) book.title = title;
@@ -117,9 +120,8 @@ router.patch("/:id", verifyAccessToken, async (req, res) => {
 
     await book.save();
 
-
-    res.status(200).json({ 
-      message: "Книга успешно обновлена", 
+    res.status(200).json({
+      message: "Книга успешно обновлена",
       book,
       rating: updatedRating,
     });
@@ -130,4 +132,3 @@ router.patch("/:id", verifyAccessToken, async (req, res) => {
 });
 
 module.exports = router;
-

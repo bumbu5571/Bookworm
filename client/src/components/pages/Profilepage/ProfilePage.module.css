@@ -9,8 +9,9 @@
   font-size: 1.1rem;
 }
 
-.wrapper * {
+.wrapper > * {
   padding-left: 1rem;
+  color: #e1d9ce;
 }
 
 .wrapper img {
