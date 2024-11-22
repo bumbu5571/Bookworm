@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 import axiosInstance from '../../../utils/axiosInstance';
 import style from "./BookCard.module.css";
 
-function BookCard({id, title, authorName, description}) {
+function BookCard({id, title, authorName, description, onFavoriteRemove}) {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [bookRating, setBookRating] = useState(0);
@@ -27,10 +26,48 @@ function BookCard({id, title, authorName, description}) {
       console.error('Error fetching book rating:', error);
     }
   };
-
+  
   useEffect(() => {
     fetchBookRating();
   }, [id]);
+  
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    const checkFavoriteStatus = async () => {
+      try {
+        const response = await axiosInstance.get(`${import.meta.env.VITE_API}/favorites`);
+        const favorites = response.data;
+        setIsFavorite(favorites.some(fav => fav.bookId === id));
+      } catch (error) {
+        console.error('Error checking favorite status:', error);
+      }
+    };
+    checkFavoriteStatus();
+  }, [id]);
+
+  const handleAddToFavorites = async () => {
+    try {
+      await axiosInstance.post(`${import.meta.env.VITE_API}/favorites`, { bookId: id });
+      setIsFavorite(true);
+    } catch (error) {
+      console.error('Error adding to favorites:', error);
+    }
+  };
+  
+  const handleRemoveFromFavorites = async () => {
+    try {
+      await axiosInstance.delete(`${import.meta.env.VITE_API}/favorites/${id}`);
+      setIsFavorite(false);
+      if (onFavoriteRemove) {
+        onFavoriteRemove(id);
+      }
+    } catch (error) {
+      console.error('Error removing from favorites:', error);
+    }
+  };
+
+  
 
   return (
     <>
@@ -61,8 +98,15 @@ function BookCard({id, title, authorName, description}) {
         </div>
         <div className={style.bookactions}>
           <button className={style.btndetails} onClick={handleDetailsClick}>Подробно</button>
-          <button className={style.btnfavorite}>Добавить в избранное</button>
-          <button className={style.btnremove}>Удалить с избранного</button>
+          {!isFavorite ? (
+            <button className={style.btnfavorite} onClick={handleAddToFavorites}>
+              Добавить в избранное
+            </button>
+          ) : (
+            <button className={style.btnremove} onClick={handleRemoveFromFavorites}>
+              Удалить из избранного
+            </button>
+          )}
         </div>
       </div>
 

@@ -6,8 +6,12 @@ import BookCard from '../../block/BookCard/BookCard'
 
 function FavoriteBooksList() {
   const [favs, setFavs] = useState([]);
-
+  
   useEffect(() => {
+    loadFavorites();
+  }, []);
+
+  const loadFavorites = () => {
     axiosInstance
       .get(`${import.meta.env.VITE_API}/favorites`)
       .then((res) => {
@@ -16,7 +20,11 @@ function FavoriteBooksList() {
       .catch((err) => {
         setFavs([])
       });
-  }, []);
+  };
+
+  const handleFavoriteRemove = (removedId) => {
+    setFavs(prevFavs => prevFavs.filter(fav => fav.Book.bookId !== removedId));
+  };
 
   return (
     <>
@@ -25,16 +33,17 @@ function FavoriteBooksList() {
         {favs.map((el) => (
           <BookCard
             key={el.Book.id} 
-            id={el.Book.bookId} 
+            id={el.Book.bookId}
             title={el.Book.title}
-            authorName = {el.Book.authorName}        
-            description = {el.Book.description}  
-            genre = {el.Book.genre}
+            authorName={el.Book.authorName}
+            description={el.Book.description}
+            genre={el.Book.genre}
+            onFavoriteRemove={handleFavoriteRemove}
           />
         ))}
       </div>
     </>
-  )
+  );
 }
 
 export default FavoriteBooksList
