@@ -6,12 +6,12 @@ import Root from "./Root";
 import { useEffect, useState } from "react";
 import axiosInstance, { setAccessToken } from "./utils/axiosInstance";
 import ProfilePage from "./components/pages/Profilepage/ProfilePage";
-import TestComponent from "./components/TestComponent/TestComponent";
 import UserBook from "./components/pages/UserBook/UserBook";
 import BookForm from "./components/pages/BookForm/BookForm";
 import FavoriteBooksList from "./components/pages/FavoriteBooksList/FavoriteBooksList";
 import UserBooksList from "./components/pages/UserBookList/UserBooksList";
 import EditBook from "./components/pages/EditBook/EditBook";
+import PrivateRoute from './PrivateRoute';
 
 function App() {
   const [user, setUser] = useState({});
@@ -43,27 +43,27 @@ function App() {
         },
         {
           path: "/userbooks",
-          element: <UserBooksList setUser={setUser} />
+          element: <PrivateRoute><UserBooksList setUser={setUser} /></PrivateRoute>
         },
         {
           path: "/createbook",
-          element: <BookForm setUser={setUser} />
+          element: <PrivateRoute><BookForm setUser={setUser} /></PrivateRoute>
         },
         {
           path: "/editbook/:id",
-          element: <EditBook />
+          element: <PrivateRoute><EditBook /></PrivateRoute>
         },
         {
           path: "/profile/:id",
-          element: <ProfilePage user={user} />
+          element: <PrivateRoute><ProfilePage user={user} /></PrivateRoute>
         },
         {
           path: "/favorites",
-          element: <FavoriteBooksList user={user} />
+          element: <PrivateRoute><FavoriteBooksList user={user} /></PrivateRoute>
         },
         {
           path: "/book/:id",
-          element: <UserBook user={user}/>
+          element: <PrivateRoute><UserBook user={user}/></PrivateRoute>
         }
       ]
     },
