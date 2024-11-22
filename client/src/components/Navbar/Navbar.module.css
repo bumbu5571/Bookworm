@@ -1,31 +1,113 @@
 .wrapper {
-  margin: 0.5rem 0.5rem 0 0;
+  display: flex;
+  justify-content: space-around;
+  /* Пространство вокруг секций */
+  align-items: center;
+  /* Центрирование по вертикали */
+  width: 100%;
+  /* Занять всю ширину */
+  padding: 15px 20px;
+  background-color: #886750;
+  /* Цвет фона */
+  color: white;
+  /* Цвет текста */
+  position: fixed;
+  /* Фиксируем панель */
+  top: 0;
+  /* Расположить сверху */
+  left: 0;
+  /* Привязка к левому краю */
+  z-index: 1000;
+  /* Поверх остальных элементов */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  /* Лёгкая тень для отделения от контента */
 }
 
-.wrapper ul {
+.links {
+  flex: 1;
+  /* Занять доступное пространство */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Центрирование внутри */
+  gap: 20px;
+  /* Расстояние между ссылками */
+}
+
+.userSection {
+  flex: 2;
+  /* Занять больше пространства для распределения */
   display: flex;
   justify-content: flex-end;
-  gap: 1rem;
-  list-style: none;
-  margin: 0;
+  /* Пространство вокруг элементов */
+  align-items: center;
 }
 
-.wrapper a {
-  display: block ;
-  height: 2.5rem;
-  font-size: 1.3rem;
+.userInfo {
+  display: flex;
+  align-items: center;
+  /* Центрирование текста и аватара */
+  gap: 35px;
+  /* Расстояние между элементами */
+}
+
+.authLinks {
+  display: flex;
+  justify-content: space-around;
+  /* Пространство вокруг ссылок */
+  gap: 10px;
+}
+
+.profileLink {
+  display: flex;
+  align-items: center;
+  /* Выравнивание текста и аватара */
+  gap: 8px;
   text-decoration: none;
-  color: #000;
-  padding: .4rem;
-  border: .1rem solid ;
-  border-radius: 10px;
+  color: #292021;
+  font-weight: bold;
 }
 
-.wrapper img {
-  width: 32px;
-  height: 27px;
-  vertical-align: middle;
-  padding: .1rem;
-  border: 1px solid black;
+.avatar {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  border: 2px solid #e1d9ce;
+}
+
+.logout {
+  color: #292021;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.logout:hover {
+  color: #886750;
+}
+
+a {
+  text-decoration: none;
+  padding: 0.4rem;
+  color: #292021;
+  background-color: #e1d9ce;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #886750;
+}
+
+.logo {
+  width: 70px;
+  height: auto;
+  border-radius: 15px;
+  /* Закругление углов */
+  mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 70%);
+  background-color: inherit;
+  /* Наследует цвет Navbar */
 }

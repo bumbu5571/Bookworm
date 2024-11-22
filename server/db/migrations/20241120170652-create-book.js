@@ -24,10 +24,11 @@ module.exports = {
         type: Sequelize.TEXT
       },
       creatorId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
-          key: 'userId'
+          key: 'id'
         },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL'

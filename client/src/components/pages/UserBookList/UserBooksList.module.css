@@ -1,0 +1,10 @@
+.wrapper {
+margin: 7rem auto;
+}
+
+.wrapper > h2 {
+  margin: 1.6rem auto;
+  text-align: center;
+  font-size: 2rem;
+  color: #292021;
+}

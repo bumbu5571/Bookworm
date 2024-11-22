@@ -1,35 +1,20 @@
 .wrapper {
   width: 30vw;
-  margin: 10rem auto;
-  padding: 3rem 1rem;
+  margin: 5rem auto;
+  padding: 0 1rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 50px;
-  border: 2px solid;
+  border: 3px solid #e1d9ce;
+  background-color: #886750;
+  color: #e1d9ce;
 }
 
 .inputBox {
   position: relative;
   width: inherit;
   margin: 0 auto;
-}
- 
-.wrapper input {
-  width: 90%;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  padding: .8rem;
-  padding-right: 40px;
-  border-radius: 10px;
-}
-
-.wrapper button {
-  display: inline-block;
-  margin-bottom: 0.5rem;
-  font-size: 1.3rem;
-  padding: .6rem;
-  border-radius: 10px;
 }
 
 .valid {
@@ -64,21 +49,14 @@
   border-radius: 10px;
 }
 
-.server button {
-  cursor: pointer;
-  padding: .3rem;
-  border-radius: 5px;
-  font-size: 1.3rem;
-}
-
 .iconShow {
   position: absolute;
-  top: 1rem;
-  right: 11%;
+  top: .5rem;
+  right: 10%;
   width: 32px;
   height: 27px;
   cursor: pointer;
   background-image: url("/icons/free-icon-font-eye-3917752.svg");
-  background-size: 32px 27px;
+  background-size: 27px 22px;
   background-repeat: no-repeat;
 }

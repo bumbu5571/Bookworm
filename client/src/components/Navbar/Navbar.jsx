@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import style from "./Navbar.module.css"
 import axiosInstance, { setAccessToken } from "../../utils/axiosInstance"
 
-function Navbar({ user, setUser}) {
+function Navbar({ user, setUser, book}) {
   const navigate = useNavigate();
   
   const logoutHandler = async () => {
@@ -17,33 +17,35 @@ function Navbar({ user, setUser}) {
     }
   };
 
-  return (
-    <nav className={style.wrapper}>
-      <ul>
-        <li className={style.mainPage}>
-          <Link to="/" >Главная страница</Link>
-        </li>
-        {user?.name ? (
-          <>
-            <li>
-              <Link to={`/profile/${user?.id}`} >{user?.name} <img src={user?.avatar} alt="Avatar user" /></Link>
-            </li>
-            <li>
-              <Link onClick={logoutHandler}>Выйти</Link>
-            </li>
-          </>
-        ) : (
-          <>
-            <li>
-              <Link to="/signup">Регистрация</Link>
-            </li>
-            <li>
-              <Link to="/signin">Войти</Link>
-            </li>
-          </>
-        )}
-      </ul>
-    </nav>
+return (
+<nav className={style.wrapper}>
+  <div className={style.links}>
+    <img src='/icons/boookworm_logo.jpeg' alt="site logo" className={style.logo}/>
+    <Link to="/">Главная страница</Link>
+  </div>
+
+  <div className={style.userSection}>
+    {user?.name ? (
+      <div className={style.userInfo}>
+        <Link to="/userbooks">Мои книги</Link>
+        <Link to="/favorites">Избранное</Link>
+        <Link to="/createbook">Создать книгу</Link>
+        <Link to={`/profile/${user?.id}`} className={style.profileLink}>
+          {user?.name}
+          <img src={user?.avatar} alt="Avatar user" className={style.avatar} />
+        </Link>
+        <Link onClick={logoutHandler} className={style.logout}>
+          Выйти
+        </Link>
+      </div>
+    ) : (
+      <div className={style.authLinks}>
+        <Link to="/signup">Регистрация</Link>
+        <Link to="/signin">Войти</Link>
+      </div>
+    )}
+  </div>
+</nav>
   )
 }
 

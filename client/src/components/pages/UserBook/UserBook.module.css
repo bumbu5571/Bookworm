@@ -1,0 +1,145 @@
+/* Карточка книги */
+.userBook {
+  background-color: #886750;
+  border: 3px solid #e1d9ce;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 40vw;
+  margin: 7rem auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.userBook > h2 {
+  color: #e1d9ce;
+}
+
+/* Заголовок карточки */
+.userBookHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Изображение книги */
+.bookImage img {
+  width: 60px;
+  height: 90px;
+  border: 1px solid #e1d9ce;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Информация о книге */
+.bookInfo {
+  flex-grow: 1;
+  margin-left: 15px;
+  flex-shrink: 0;
+}
+
+.bookTitle {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #e1d9ce;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.bookAuthor {
+  margin: 5px 0 0;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+/* Рейтинг */
+.bookRating {
+  background-color: #ffdddd;
+  border: 2px solid #f44;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #f44;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+/* Описание */
+.bookDescription {
+  font-size: 14px;
+  color: #292021;
+  border: 1px solid #e1d9ce;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #cab08f;
+}
+
+/* Действия */
+.bookActions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  padding: 5px 10px;
+  width: fit-content;
+  align-self: center;
+}
+
+/* Синяя кнопка */
+.btnDetails {
+  background-color: #e1d9ce;
+}
+
+.btnDetails:hover {
+  background-color: #46b8da;
+  transform: scale(1.02);
+}
+
+/* Зеленая кнопка */
+.btnAddComment {
+  background-color: #e1d9ce;
+}
+
+.btnAddComment:hover {
+  background-color: #45a049;
+  transform: scale(1.02);
+}
+
+/* Красная кнопка */
+.btnRemoveComment {
+  background-color: #e1d9ce;
+}
+
+.btnRemoveComment:hover {
+  background-color: #d32f2f;
+  transform: scale(1.02);
+}
+
+/* Комментарии */
+.comment {
+  background-color: #cab08f;
+  border: 1px solid #e1d9ce;
+  color: #292021;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.comment p {
+  margin: 5px 0;
+}

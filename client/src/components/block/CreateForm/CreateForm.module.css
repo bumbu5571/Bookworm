@@ -1,0 +1,92 @@
+/* Контейнер формы */
+.formcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5rem auto;
+  background-color: #886750;
+  border: 3px solid #e1d9ce;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  width: 40vw;
+  padding: 30px 25px 30px 20px;
+  text-align: center;
+  gap: 20px;
+}
+
+.formcontainer h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #e1d9ce;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Форматирование формы */
+.formcontainer form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: calc(100% - 10px);
+  /* Уменьшаем ширину формы для отступа */
+  margin-right: 10px;
+}
+
+/* Стили для элементов формы */
+.formcontainer label {
+  font-weight: bold;
+  color: #e1d9ce;
+  margin-bottom: 5px;
+}
+
+.formcontainer input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #e1d9ce;
+  color: #292021;
+  font-size: 1.1rem;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.formcontainer input:focus,
+textarea:focus,
+select:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  outline: none;
+}
+
+/* Кнопка */
+.formcontainer button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e1d9ce;
+  color: #292021;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.formcontainer button:hover {
+  background-color: #45a049;
+  transform: scale(1.02);
+}
+
+/* Дополнительные стили для мобильных устройств */
+@media (max-width: 480px) {
+  .form-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+.formcontainer input,
+  textarea,
+  select,
+  button {
+    font-size: 14px;
+  }
+}

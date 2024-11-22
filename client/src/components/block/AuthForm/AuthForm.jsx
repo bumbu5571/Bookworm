@@ -28,16 +28,16 @@ function AuthForm({type, setUser}) {
 
   const refErrorUser = useRef(null);
 
-  const changeHandler = (even) => {
-    setInputs((prev) => ({...prev, [even.target.name]: even.target.value}))
+  const changeHandler = (event) => {
+    setInputs((prev) => ({...prev, [event.target.name]: event.target.value}))
     
-    if (even.target.type === "email" && type === "signup") {
-      setInputs(prev => ({...prev, isValidEmail:validEmail(even.target.value)}));
+    if (event.target.type === "email" && type === "signup") {
+      setInputs(prev => ({...prev, isValidEmail:validEmail(event.target.value)}));
     }
 
-    if (even.target.type === "password" && type === "signup") {
+    if (event.target.type === "password" && type === "signup") {
       refValidPass.current.style.display = "block";
-      setInputs((prev) => ({...prev, isValidPassword: validPassword(even.target.value),isRepeatPassword: (refInputPass.current.value === refInputRepeatPass.current.value)}));
+      setInputs((prev) => ({...prev, isValidPassword: validPassword(event.target.value),isRepeatPassword: (refInputPass.current.value === refInputRepeatPass.current.value)}));
     }
   };
 
@@ -115,14 +115,14 @@ function AuthForm({type, setUser}) {
     event.target.style.backgroundImage = `url("/icons/free-icon-font-eye-3917752.svg")`
   };
 
-  const submitHandler = async (even) => {
-    even.preventDefault();
+  const submitHandler = async (event) => {
+    event.preventDefault();
 
     if (type === "signup" && !(inputs.isValidEmail && (inputs.isValidPassword > 2) && inputs.isRepeatPassword )) {
       return;
     }
       
-    const fd = new FormData(even.target);
+    const fd = new FormData(event.target);
     type === "signup" ? fd.delete("repeatPassword") : false;
     const urlEncoded = new URLSearchParams(fd).toString();
 
@@ -170,6 +170,7 @@ function AuthForm({type, setUser}) {
     <form onSubmit={submitHandler} className={style.wrapper} >
       {type === "signin" && (
         <>
+        <h2>Войти: </h2>
         <div className={style.inputBox}>
           <input onFocus={focusHandler} onChange={changeHandler} type="email" name='email' placeholder='Электронная почта' />
         </div>
@@ -183,6 +184,7 @@ function AuthForm({type, setUser}) {
       )}
       {type === "signup" && (
         <>
+        <h2>Регистрация: </h2>
         <div className={style.inputBox}><input onChange={changeHandler} type="text" name='name' placeholder='Имя пользователя' /></div>
         <div className={style.inputBox}>
           <input ref={refInputEmail} onFocus={focusHandler} onBlur={blurHandler} onChange={changeHandler} type="email" name='email' placeholder='Электронная почта' />

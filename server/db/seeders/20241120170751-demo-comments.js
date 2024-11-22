@@ -13,6 +13,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        commentText: 'Битва котлет - это нечто! Браво!',
+        userId: 1,
+        bookId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
         commentText: 'После прочтения я начал видеть котлеты в кошмарах. Спасибо автору!',
         userId: 2,
         bookId: 2,
@@ -20,9 +27,30 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        commentText: 'Очень реалистичное описание будней в бассейне!',
+        userId: 2,
+        bookId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        commentText: 'Теперь я знаю, куда деваются все носки!',
+        userId: 2,
+        bookId: 3,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
         commentText: 'Теперь я знаю, куда деваются мои носки. Гениально!',
         userId: 3,
         bookId: 3,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        commentText: 'Никогда не думал, что уборка может быть такой захватывающей!',
+        userId: 3,
+        bookId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
