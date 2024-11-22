@@ -43,27 +43,27 @@ function App() {
         },
         {
           path: "/userbooks",
-          element: <PrivateRoute><UserBooksList setUser={setUser} /></PrivateRoute>
+          element: <UserBooksList setUser={setUser} />
         },
         {
           path: "/createbook",
-          element: <PrivateRoute><BookForm setUser={setUser} /></PrivateRoute>
+          element: <BookForm setUser={setUser} />
         },
         {
           path: "/editbook/:id",
-          element: <PrivateRoute><EditBook /></PrivateRoute>
+          element: <EditBook />
         },
         {
           path: "/profile/:id",
-          element: <PrivateRoute><ProfilePage user={user} /></PrivateRoute>
+          element: <ProfilePage user={user} />
         },
         {
           path: "/favorites",
-          element: <PrivateRoute><FavoriteBooksList user={user} /></PrivateRoute>
+          element: <FavoriteBooksList user={user} />
         },
         {
           path: "/book/:id",
-          element: <PrivateRoute><UserBook user={user}/></PrivateRoute>
+          element: <UserBook user={user}/>
         }
       ]
     },

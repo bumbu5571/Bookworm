@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../../utils/axiosInstance';
 import style from "./BookCard.module.css";
 
-function BookCard({id, title, authorName, description}) {
+function BookCard({id, title, authorName, description, onFavoriteRemove}) {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [bookRating, setBookRating] = useState(0);
@@ -59,10 +59,15 @@ function BookCard({id, title, authorName, description}) {
     try {
       await axiosInstance.delete(`${import.meta.env.VITE_API}/favorites/${id}`);
       setIsFavorite(false);
+      if (onFavoriteRemove) {
+        onFavoriteRemove(id);
+      }
     } catch (error) {
       console.error('Error removing from favorites:', error);
     }
   };
+
+  
 
   return (
     <>
