@@ -18,35 +18,34 @@ function Navbar({ user, setUser}) {
   };
 
   return (
-    <nav className={style.wrapper}>
-      <ul>
-        <li>
-          <Link to="/test">Test</Link>
-        </li>
-        <li className={style.mainPage}>
-          <Link to="/" >Главная страница</Link>
-        </li>
-        {user?.name ? (
-          <>
-            <li>
-              <Link to={`/profile/${user?.id}`} >{user?.name} <img src={user?.avatar} alt="Avatar user" /></Link>
-            </li>
-            <li>
-              <Link onClick={logoutHandler}>Выйти</Link>
-            </li>
-          </>
-        ) : (
-          <>
-            <li>
-              <Link to="/signup">Регистрация</Link>
-            </li>
-            <li>
-              <Link to="/signin">Войти</Link>
-            </li>
-          </>
-        )}
-      </ul>
-    </nav>
+<nav className={style.wrapper}>
+  <div className={style.links}>
+    <Link to="/">Главная страница</Link>
+
+  </div>
+
+  <div className={style.userSection}>
+    <Link to="/test">Test</Link>
+    {user?.name ? (
+      <div className={style.userInfo}>
+        <Link to="/userbooks">Мои книги</Link>
+        <Link to="/favorites">Избранное</Link>
+        <Link to={`/profile/${user?.id}`} className={style.profileLink}>
+          {user?.name}
+          <img src={user?.avatar} alt="Avatar user" className={style.avatar} />
+        </Link>
+        <Link onClick={logoutHandler} className={style.logout}>
+          Выйти
+        </Link>
+      </div>
+    ) : (
+      <div className={style.authLinks}>
+        <Link to="/signup">Регистрация</Link>
+        <Link to="/signin">Войти</Link>
+      </div>
+    )}
+  </div>
+</nav>
   )
 }
 
