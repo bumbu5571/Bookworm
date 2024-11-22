@@ -20,7 +20,7 @@ function Navbar({ user, setUser, book}) {
 return (
 <nav className={style.wrapper}>
   <div className={style.links}>
-    <img src='../../../public/icons/boookworm_logo.jpeg' alt="site logo" className={style.logo}/>
+    <img src='/icons/boookworm_logo.jpeg' alt="site logo" className={style.logo}/>
     <Link to="/">Главная страница</Link>
   </div>
 
