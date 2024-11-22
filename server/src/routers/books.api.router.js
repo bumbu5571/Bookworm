@@ -47,6 +47,17 @@ router.get("/:id/comments", async (req, res) => {
       }
     });
 
+    router.get("/:id/ratings", async (req, res) => {
+      try {
+        const ratings = await Rating.findAll({
+          where: { bookId: req.params.id }
+        });
+        res.json(ratings);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Ошибка сервера" });
+      }
+    });
 
 router.get("/user", verifyAccessToken, async (req, res) => {
   try {
