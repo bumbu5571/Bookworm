@@ -2,7 +2,7 @@
   margin: 7rem auto;
 }
 
-.wrapper  h2{
+.wrapper >  h2 {
   font-size: 2rem;
   text-align: center;
   color: #292021;

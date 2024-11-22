@@ -5,11 +5,15 @@
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 40vw;
-  margin: 1rem auto;
+  margin: 7rem auto;
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.userBook > h2 {
+  color: #e1d9ce;
 }
 
 /* Заголовок карточки */
@@ -130,6 +134,7 @@
 .comment {
   background-color: #cab08f;
   border: 1px solid #e1d9ce;
+  color: #292021;
   border-radius: 8px;
   padding: 10px;
   margin-bottom: 15px;

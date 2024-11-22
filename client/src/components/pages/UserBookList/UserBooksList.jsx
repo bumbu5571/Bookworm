@@ -8,16 +8,17 @@ function UserBooksList({user}) {
 
   useEffect(() => {
     axiosInstance.get(
-      `${import.meta.env.VITE_API}/books/user`).then(response => setBooks(response.data)).catch(error => console.error(error));
+      `${import.meta.env.VITE_API}/books/user`).then(response => setBooks(response.data)).catch(error => setBooks([]));
   },[])
-
+  console.log(books)
   return (
       <>
       <div className={style.wrapper}>
-        Мои книги
+      <h2>Мои книги:</h2>
       {books.map((el) => (
           <BookCard 
             key={el.id} 
+            id={el.bookId} 
             title={el.title}
             authorName = {el.authorName}        
             description = {el.description}  
