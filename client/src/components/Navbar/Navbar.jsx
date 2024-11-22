@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import style from "./Navbar.module.css"
 import axiosInstance, { setAccessToken } from "../../utils/axiosInstance"
 
-function Navbar({ user, setUser}) {
+function Navbar({ user, setUser, book}) {
   const navigate = useNavigate();
   
   const logoutHandler = async () => {
@@ -29,6 +29,7 @@ return (
       <div className={style.userInfo}>
         <Link to="/userbooks">Мои книги</Link>
         <Link to="/favorites">Избранное</Link>
+        <Link to="/createbook">Создать книгу</Link>
         <Link to={`/profile/${user?.id}`} className={style.profileLink}>
           {user?.name}
           <img src={user?.avatar} alt="Avatar user" className={style.avatar} />
