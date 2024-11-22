@@ -15,7 +15,7 @@ function CreateForm(){
     event.preventDefault();
 
     const fd = new FormData(event.target);
-    fd.delete("photo")
+    /* fd.delete("photo") */
     const urlEncoded = new URLSearchParams(fd).toString();
 
     const response = await axiosInstance.post(
@@ -73,8 +73,8 @@ return(
         <option value="5">5 - Отлично</option>
       </select>
 
-      <label for="photo">Загрузить фото</label>
-      <input type="file" id="photo" name="photo" accept="image/*"/>
+      {/* <label for="photo">Загрузить фото</label>
+      <input type="file" id="photo" name="photo" accept="image/*"/> */}
 
       <button type="submit">Создать</button>
     </form>

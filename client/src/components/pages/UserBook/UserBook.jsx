@@ -8,6 +8,7 @@ function UserBook() {
   const [book, setBook] = useState(null);
   const [comments, setComments] = useState([]);
   const { id } = useParams();
+  const imagePath = `/pik/${id}.png`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,7 +43,7 @@ function UserBook() {
     <div className={style.userBook}>
       <div className={style.userBookHeader}>
         <div className={style.bookImage}>
-          <img src={book.imageUrl || "placeholder.png"} alt="Обложка книги"/>
+          <img src={imagePath || "placeholder.png"} alt="Обложка книги"/>
         </div>
         <div className={style.bookInfo}>
           <h2 className={style.bookTitle}>{book.title}</h2>
@@ -61,7 +62,7 @@ function UserBook() {
         <div key={comment.commentId} className={style.comment}>
           <p>{comment.commentText}</p>
           <p><strong>Автор:</strong> {comment.User.name}</p>
-          <button 
+         {/*  <button 
             className={` ${style.btnRemoveComment}`}
             onClick={() => handleRemoveComment(comment.commentId)}
           >
@@ -69,7 +70,7 @@ function UserBook() {
           </button>
           <button className={` ${style.btnAddComment}`} onClick={handleAddComment}>
           Добавить комментарий
-        </button>
+        </button> */}
         </div>
       ))}
     </div>
