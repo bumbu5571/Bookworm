@@ -14,16 +14,13 @@ function FavoriteBooksList() {
         setFavs(res.data)
       })
       .catch((err) => {
-        console.error(err);
         setFavs([])
       });
   }, []);
 
-  console.log(favs);
-
   return (
     <>
-      <div>
+      <div className={style.wrapper}>
         <h2 className={style.wrapper}>Избранное:</h2>
         {favs.map((el) => (
           <BookCard
