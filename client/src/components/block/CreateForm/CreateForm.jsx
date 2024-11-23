@@ -27,7 +27,7 @@ function CreateForm(){
       console.error(error)
     });
     if (response.status === 200) {
-      navigate("/")
+      navigate(`/book/${response.data}`)
     }
   };
 

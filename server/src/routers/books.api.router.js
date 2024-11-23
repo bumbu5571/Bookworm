@@ -126,7 +126,7 @@ router.post(
         });
         };
       }
-      res.sendStatus(200);
+      res.status(200).json(book.bookId);
     } catch (error) {
       console.error(error);
       res.status(400).json({ message: "Ошибка БД" });
