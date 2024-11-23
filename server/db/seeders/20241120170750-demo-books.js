@@ -11,6 +11,7 @@ module.exports = {
         genre: 'Пародия',
         description: 'История про очень влажные фантазии уборщицы в бассейне',
         creatorId: 1,
+        bookImg: "/pik/1.png",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -20,6 +21,7 @@ module.exports = {
         genre: 'Кулинарный боевик',
         description: 'Эпическая битва между котлетами и пельменями за место в морозилке',
         creatorId: 2,
+        bookImg: "/pik/2.png",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -29,6 +31,7 @@ module.exports = {
         genre: 'Детектив',
         description: 'Захватывающее расследование исчезновения носков во время стирки',
         creatorId: 3,
+        bookImg: "/pik/3.png",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -38,6 +41,7 @@ module.exports = {
         genre: 'Научная фантастика',
         description: 'Приключения русского космонавта на Марсе, где он открывает пельменную',
         creatorId: 4,
+        bookImg: "/pik/4.png",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -47,6 +51,7 @@ module.exports = {
         genre: 'Романтика',
         description: 'Страстный роман между двумя картофелинами на грядке',
         creatorId: 5,
+        bookImg: "/pik/5.png",
         createdAt: new Date(),
         updatedAt: new Date()
       }

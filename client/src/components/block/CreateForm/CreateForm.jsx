@@ -13,19 +13,17 @@ function CreateForm(){
   
   const submitHandler = async (event) => {
     event.preventDefault();
-
+ 
     const fd = new FormData(event.target);
-    /* fd.delete("photo") */
-    const urlEncoded = new URLSearchParams(fd).toString();
+    /* const urlEncoded = new URLSearchParams(fd).toString(); */
 
     const response = await axiosInstance.post(
     `${import.meta.env.VITE_API}/books`,
-    urlEncoded, {
+    fd, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded', 
-      },
-    }
-    ).catch(error =>{
+        "Content-Type": "multipart/form-data",
+      } 
+    }).catch(error =>{
       console.error(error)
     });
     if (response.status === 200) {
@@ -73,8 +71,8 @@ return(
         <option value="5">5 - Отлично</option>
       </select>
 
-      {/* <label for="photo">Загрузить фото</label>
-      <input type="file" id="photo" name="photo" accept="image/*"/> */}
+      <label for="photo">Загрузить фото</label>
+      <input type="file" id="photo" name="photo" accept="image/png, image/jpeg"/>
 
       <button type="submit">Создать</button>
     </form>

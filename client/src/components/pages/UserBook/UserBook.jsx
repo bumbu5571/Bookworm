@@ -43,7 +43,7 @@ function UserBook() {
     <div className={style.userBook}>
       <div className={style.userBookHeader}>
         <div className={style.bookImage}>
-          <img src={imagePath || "placeholder.png"} alt="Обложка книги"/>
+          <img src={book.bookImg} alt="Обложка книги"/>
         </div>
         <div className={style.bookInfo}>
           <h2 className={style.bookTitle}>{book.title}</h2>

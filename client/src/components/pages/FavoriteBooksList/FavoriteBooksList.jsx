@@ -38,6 +38,7 @@ function FavoriteBooksList() {
             authorName={el.Book.authorName}
             description={el.Book.description}
             genre={el.Book.genre}
+            bookImg={el.Book.bookImg}
             onFavoriteRemove={handleFavoriteRemove}
           />
         ))}

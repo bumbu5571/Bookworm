@@ -23,6 +23,7 @@ function UserBooksList({user}) {
             authorName = {el.authorName}        
             description = {el.description}  
             genre = {el.genre}
+            bookImg={el.bookImg}
           />
         ))}
       </div>
