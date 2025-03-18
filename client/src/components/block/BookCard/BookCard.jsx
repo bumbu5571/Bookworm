@@ -3,11 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../../utils/axiosInstance';
 import style from "./BookCard.module.css";
 
-function BookCard({id, title, authorName, description, onFavoriteRemove}) {
+function BookCard({id, title, authorName, description, onFavoriteRemove, bookImg}) {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [bookRating, setBookRating] = useState(0);
-  const imagePath = `/pik/${id}.png`;
 
   const handleDetailsClick = () => {
     navigate(`/book/${id}`);
@@ -75,13 +74,13 @@ function BookCard({id, title, authorName, description, onFavoriteRemove}) {
         <div className={style.bookcardheader}>
           <div className={style.bookimage}>
             <img 
-              src={imagePath} 
+              src={bookImg} 
               alt="Обложка книги"
               onClick={() => setIsModalOpen(true)}
               style={{ cursor: 'pointer' }}
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = "/pik/default.png"
+                e.target.src = "/pik/default.jpg"
               }}
             />
           </div>
@@ -117,7 +116,7 @@ function BookCard({id, title, authorName, description, onFavoriteRemove}) {
         >
           <div className={style.modalContent}>
             <img 
-              src={imagePath}
+              src={bookImg}
               alt="Увеличенная обложка"
               style={{ maxWidth: '90vw', maxHeight: '90vh' }}
             />

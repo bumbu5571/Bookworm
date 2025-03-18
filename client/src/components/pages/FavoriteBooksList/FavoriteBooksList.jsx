@@ -32,12 +32,13 @@ function FavoriteBooksList() {
         <h2 className={style.wrapper}>Избранное:</h2>
         {favs.map((el) => (
           <BookCard
-            key={el.Book.id} 
+            key={el.Book.bookId} 
             id={el.Book.bookId}
             title={el.Book.title}
             authorName={el.Book.authorName}
             description={el.Book.description}
             genre={el.Book.genre}
+            bookImg={el.Book.bookImg}
             onFavoriteRemove={handleFavoriteRemove}
           />
         ))}

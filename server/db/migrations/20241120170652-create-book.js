@@ -33,6 +33,10 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL'
       },
+      bookImg: {
+        type: Sequelize.TEXT,
+        defaultValue: "/pik/default.jpg"
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

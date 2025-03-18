@@ -8,37 +8,37 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Users', [
       {
-        name: 'Вася Терка',
-        email: 'vasyaTerka@example.com',
-        password: await bcrypt.hash('терка123', 10),
+        name: 'Иван Петров',
+        email: 'ivan.petrov@example.com',
+        password: await bcrypt.hash('qwerty123', 10),
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        name: 'Жора Кастрюлькин',
-        email: 'zhoraKastrulkin@example.com',
-        password: await bcrypt.hash('борщ456', 10),
+        name: 'Елена Смирнова',
+        email: 'elena.smirnova@example.com',
+        password: await bcrypt.hash('парольПароль', 10),
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        name: 'Зина Сковородкина',
-        email: 'zinaSkovorodkina@example.com',
-        password: await bcrypt.hash('яичница789', 10),
+        name: 'Алексей Иванов',
+        email: 'alex.ivanov@example.com',
+        password: await bcrypt.hash('12345678', 10),
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        name: 'Петя Половник',
-        email: 'petyaPolovnik@example.com',
-        password: await bcrypt.hash('суп101112', 10),
+        name: 'Мария Кузнецова',
+        email: 'maria.kuz@example.com',
+        password: await bcrypt.hash('password123', 10),
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        name: 'Люся Поварешкина',
-        email: 'lusyaPovareshkina@example.com',
-        password: await bcrypt.hash('котлета131415', 10),
+        name: 'Дмитрий Попов',
+        email: 'dmitry.popov@example.com',
+        password: await bcrypt.hash('qwertzuiop', 10),
         createdAt: new Date(),
         updatedAt: new Date()
       }

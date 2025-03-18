@@ -31,6 +31,7 @@ function MainPage() {
           authorName={book.authorName}
           description={book.description}
           genre={book.genre}
+          bookImg={book.bookImg}
         />
       ))}
       </div>
