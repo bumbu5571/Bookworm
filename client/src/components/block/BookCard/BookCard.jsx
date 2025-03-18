@@ -80,7 +80,7 @@ function BookCard({id, title, authorName, description, onFavoriteRemove, bookImg
               style={{ cursor: 'pointer' }}
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = "/pik/default.png"
+                e.target.src = "/pik/default.jpg"
               }}
             />
           </div>

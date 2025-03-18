@@ -35,7 +35,7 @@ module.exports = {
       },
       bookImg: {
         type: Sequelize.TEXT,
-        defaultValue: "/pik/default.png"
+        defaultValue: "/pik/default.jpg"
       },
       createdAt: {
         allowNull: false,

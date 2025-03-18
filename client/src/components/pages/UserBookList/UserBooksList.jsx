@@ -17,7 +17,7 @@ function UserBooksList({user}) {
       <h2>Мои книги:</h2>
       {books.map((el) => (
           <BookCard 
-            key={el.id} 
+            key={el.bookId} 
             id={el.bookId} 
             title={el.title}
             authorName = {el.authorName}        
