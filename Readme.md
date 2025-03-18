@@ -2,8 +2,8 @@
 
 <div style="display: flex;">
   <a href="https://github.com/bumbu5571/Bookworm">
-    <img src="" alt="img" border="0" width='400px' style="margin-right: 10px;" />
-    <img src="" alt="img" border="0" width='400px' />
+    <img src="https://i.ibb.co/JwBT5yPt/2025-03-18-18-40-04.png" alt="Главная страница Bookworm (без регистрации)" border="0" width='400px' style="margin-right: 10px;" />
+    <img src="https://i.ibb.co/SD00ChvH/2025-03-18-18-41-44.png" alt="Главная страница Bookworm (с регистрацией)" border="0" width='400px' />
   </a>
 </div>
 
