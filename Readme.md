@@ -1,9 +1,9 @@
 # Bookworm - Онлайн-библиотека
 
 <div style="display: flex;">
-    <img src="readme_images/bookworm0.giv" alt="Анимация навигации сайта" border="0" width='400px' style="margin-right: 10px;" />
-    <img src="readme_images/bookworm1.giv" alt="Анимация создания книги" border="0" width='400px' style="margin-right: 10px;" />
-    <img src="readme_images/bookworm2.giv" alt="Анимация добавления в избранное книги" border="0" width='400px' style="margin-right: 10px;" />
+    <img src="readme_images/bookworm0.gif" alt="Анимация навигации сайта" border="0" width='400px' style="margin-right: 10px;" />
+    <img src="readme_images/bookworm1.gif" alt="Анимация создания книги" border="0" width='400px' style="margin-right: 10px;" />
+    <img src="readme_images/bookworm2.gif" alt="Анимация добавления в избранное книги" border="0" width='400px' style="margin-right: 10px;" />
     <img src="readme_images/bookworm3.png" alt="Главная страница Bookworm (без регистрации)" border="0" width='400px' style="margin-right: 10px;" />
     <img src="readme_images/bookworm4.png" alt="Главная страница Bookworm (с регистрацией)" border="0" width='400px' />
 </div>
